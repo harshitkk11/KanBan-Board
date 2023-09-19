@@ -1,0 +1,277 @@
+.board-page {
+    background: #E0E0E0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    max-height: 100vh;
+}
+
+.board-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #F5F5F5;
+    width: 100%;
+    padding: 10px 20px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    text-wrap: wrap;
+}
+
+.board-nav h3 {
+    width: 100%;
+}
+
+.back-btn {
+    font-size: 30px;
+    display: flex;
+    cursor: pointer;
+}
+
+.edit-board {
+    border: 0;
+    font-size: 17px;
+    background: transparent;
+    align-self: center;
+    cursor: pointer;
+}
+
+.edit-board:hover {
+    color: #008000;
+}
+
+.delete-board {
+    border: 0;
+    font-size: 20px;
+    background: transparent;
+    align-self: center;
+    cursor: pointer;
+    /* border: 2.5px solid #FF6B6B; */
+    color: #e60000;
+}
+
+.delete-board:hover {
+    color: #b30000;
+}
+
+.cards-div {
+    width: 100%;
+    padding: 40px 0 40px 0;
+    max-width: 1200px;
+    max-height: 100vh;
+    margin: 0 auto;
+    background: #E0E0E0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    padding-bottom: 250px;
+}
+
+.todo-list, .inprogress-list, .done-list {
+    width: calc(100%/4);
+}
+
+.cards-div p {
+    margin-bottom: 10px;
+}
+
+hr {
+    border-radius: 10px;
+}
+
+.todo-list hr {
+    border: 2.5px solid #FF6B6B;
+}
+
+.inprogress-list hr {
+    border: 2.5px solid #FFD700;
+}
+
+.done-list hr {
+    border: 2.5px solid #00CC66;
+}
+
+.cards-div ul {
+    width: 100%;
+    list-style-type: none;
+}
+
+.task-item {
+    margin-top: 10px;
+    background: #F5F5F5;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    word-wrap: break-word;
+}
+
+.description-div {
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+.add-btn {
+    margin-top: 10px;
+    background: #F5F5F5;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    text-align: left;
+    color: #008000;
+    font-weight: 600;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.add-btn:hover , .task-item:hover{
+    background: #FFFFFF;
+}
+
+.task-popup-div {
+    position:fixed;
+    width: 300px;
+    height: auto;
+    /* max-height: 350px; */
+    background: #484848;
+    top: 190px;
+    left: 375px;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.task-popup-top {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.task-popup-top p{
+    width: 100%;
+    font-size: 15px;
+}
+
+.task-popup-close {
+    background: transparent;
+    color: #FFFFFF;
+    font-size: 20px;
+    border: 0;
+    cursor: pointer;
+}
+
+.task-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap:10px;
+}
+
+.task-form label {
+    font-size: 14px;
+}
+
+.task-title, .task-description {
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    border: 3px solid #FFFFFF;
+    border-radius: 3px;
+    color: #FFFFFF;
+    padding: 10px;
+}
+
+.task-title:hover, .task-description:hover {
+    border-color: #01bbff;
+}
+
+.task-title:focus, .task-description:focus {
+    outline: none !important;
+    border-color:#b6c2cf;
+}
+
+.task-description {
+    height: 80px;
+    resize: none;
+}
+
+.task-submit {
+    width: 100%;
+    height: 30px;
+    background: #606060;
+    border: 0;
+    border-radius: 3px;
+    margin-top: 20px;
+    color: #FFFFFF;
+    font-size: 15px;
+    cursor: pointer;
+    border: 1px solid #00CC66;
+    color: #FFFFFF;
+}
+
+.task-submit:hover {
+    color: #00CC66;
+}
+
+.task-submit:active {
+    background: #4dff4d;
+    color: #FFFFFF;
+}
+
+.task-delete-btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 30px;
+    background: #606060;
+    border: 1px solid #e60000;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.task-delete-btn:hover {
+    color: #e60000;
+}
+
+.task-delete-btn:focus {
+    background: #FF6B6B;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 992px) {
+    .task-popup-div {
+        top: 300px;
+        left: 100px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cards-div{
+        padding-bottom: 200px;
+    }
+    
+    .todo-list, .inprogress-list, .done-list {
+        width: calc(100%);
+        padding: 20px 40px;
+    }
+
+    .task-popup-div {
+        top: 150px;
+        left: 0px;
+        width: 100%;
+    }
+}

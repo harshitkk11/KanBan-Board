@@ -1,0 +1,85 @@
+.forgot {
+    height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: #F5F5F5;
+}
+
+.forgot-form-div {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forgotpass-form {
+    border: 1px solid #F5F5F5;
+    width: 40%;
+    padding: 40px;
+    border-radius:5%;
+    text-align: center;
+    height: auto;
+    background: transparent;
+    opacity: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forgotpass-form input {
+    width: auto;
+    height: 10%;
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 18px;
+    padding: 10px;
+    color: #FFFFFF;
+    border-color: #CCCCCC;
+}
+
+.forgotpass-form input::placeholder {
+    color: #FFFFFF;
+}
+
+.forgotpass-form input[type=submit] {
+    color: #FEFEFA;
+    background: #2E2D88;
+    border: 0;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+.forgotpass-form input[type=submit]:active {
+    background: #3c3a9e;
+}
+
+@media screen and (max-width: 992px) {
+
+    .forgot {
+        padding: 30px;
+    }
+
+    .forgot-heading {
+        font-size: 25px;
+    }
+
+    .forgotpass-form {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .forgot-heading {
+        font-size: 20px;
+    }
+
+    .forgotpass-form {
+        width: 100%;
+    }
+}

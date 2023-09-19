@@ -1,0 +1,75 @@
+.signup-form-div{
+    padding-top: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.signup-form {
+    border: 1px solid #F5F5F5;
+    padding: 20px;
+    border-radius:5%;
+    text-align: center;
+    width:80%;
+    height: auto;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup-form input {
+    width: 80%;
+    height: 10%;
+    background: transparent;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    font-size: 18px;
+    padding: 10px;
+    color: #FFFFFF;
+    border-color: #CCCCCC;
+}
+
+.signup-form input::placeholder {
+    color: #FFFFFF;
+}
+
+.signup-form input[type=submit] {
+    color: #FEFEFA;
+    background: #2E2D88;
+    border: 0;
+    cursor: pointer;
+}
+
+.signup-form input[type=submit]:active {
+    background: #3c3a9e;
+}
+
+.signup-form input[type=submit]:disabled {
+    background: #3f3f41;
+}
+
+@media screen and (max-width: 992px) {
+    .signup-form-div{
+        width: 100%;
+    }
+
+    .signup-form {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .signup-form-div{
+        width: 100%;
+    }
+
+    .signup-form {
+        width: 80%;
+    }
+}
