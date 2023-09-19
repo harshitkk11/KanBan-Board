@@ -11,7 +11,7 @@ import Board from "./pages/Board.js";
 import { UserContext } from "./contexts/UserContext.js";
 
 
-axios.defaults.baseURL = 'https://kanbanzan.onrender.com';
+axios.defaults.baseURL = 'https://kanbanzan-server.onrender.com';
 // axios.defaults.withCredentials = true;
 
 function App() {
