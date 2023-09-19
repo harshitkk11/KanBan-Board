@@ -221,7 +221,7 @@ const Board = () => {
                                     })
                                     setDeletepath("/deletetodo")
                                 }}>
-                                    <h3>{item.title}</h3>
+                                    <h4>{item.title}</h4>
                                     {item.description && <div className="description-div">
                                         {item.description}
                                     </div>
@@ -259,7 +259,7 @@ const Board = () => {
                                     })
                                     setDeletepath("/deleteinprogress")
                                 }}>
-                                    <h3>{item.title}</h3>
+                                    <h4>{item.title}</h4>
                                     {item.description && <div className="description-div">
                                         {item.description}
                                     </div>
@@ -297,7 +297,7 @@ const Board = () => {
                                     })
                                     setDeletepath("/deletedone")
                                 }}>
-                                    <h3>{item.title}</h3>
+                                    <h4>{item.title}</h4>
                                     {item.description && <div className="description-div">
                                         {item.description}
                                     </div>
