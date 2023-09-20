@@ -5,7 +5,7 @@ const NavBar = () => {
         <nav className="navbar">
             <div className="nav-container">
                 <div className="nav-logo">
-                    <h3>KanbanZen</h3>
+                    <h3>NexTask</h3>
                 </div>
                 <div className='nav-selector' ></div>
                 {/* <div className="nav-items">
