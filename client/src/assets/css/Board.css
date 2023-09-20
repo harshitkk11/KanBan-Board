@@ -20,8 +20,9 @@
     text-wrap: wrap;
 }
 
-.board-nav h3 {
+.board-nav h4 {
     width: 100%;
+    color: #333333;
 }
 
 .back-btn {
@@ -110,6 +111,7 @@ hr {
     text-align: left;
     cursor: pointer;
     word-wrap: break-word;
+    color: #333333;
 }
 
 .description-div {

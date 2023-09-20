@@ -1,13 +1,14 @@
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import logo from "../assets/images/nextask-logo.webp"
 
 const NavBar = () => {
     return (
         <nav className="navbar">
             <div className="nav-container">
                 <div className="nav-logo">
-                    <h3>NexTask</h3>
+                    <NavLink to="/"><img src={logo} alt="logo"/></NavLink>
                 </div>
-                <div className='nav-selector' ></div>
+                {/* <div className='nav-selector' ></div> */}
                 {/* <div className="nav-items">
                     <ul>
                         <li className='nav-item1'>

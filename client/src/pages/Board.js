@@ -157,7 +157,7 @@ const Board = () => {
                 <button className="back-btn" onClick={(e) => handleBackbtn(e)}><MdArrowBack /></button>
 
                 {/* board name */}
-                <h3>{currentname}</h3>
+                <h4>{currentname}</h4>
 
                 {/* edit button */}
                 <button className="edit-board" onClick={() => setBoardisopen(true)}><FiEdit2 /></button>
