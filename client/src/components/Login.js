@@ -12,7 +12,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [click, setClick] = useState(false)
-    const [send, setSend] = useState("Log in")
+    const [send, setSend] = useState("Log In")
 
 
     const handleSubmit = async (e) => {
@@ -30,17 +30,17 @@ const Login = () => {
                 setUsername("")
                 setPassword("")
                 setClick(false)
-                setSend("Log in")
+                setSend("Log In")
                 navigate("/")
             } 
             if (!response.data) {
                 setClick(false)
-                setSend("Log in")
+                setSend("Log In")
                 toast.error("Incorrect Username or Password")
             }
         } catch (error) {
             setClick(false)
-            setSend("Log in")
+            setSend("Log In")
             toast.error("Something went wrong!!")
             console.log(error)
         }
@@ -53,9 +53,9 @@ const Login = () => {
             </div>
 
             <div className="login-form-div">
+                <h1 className="login-heading">Welcome back!</h1>
+                <p>Please enter your details</p>
                 <form className="login-form" action="" onSubmit={handleSubmit}>
-                    <h1 className="login-heading">Log in</h1>
-                    <br />
 
                     <input id="username" 
                         className="username" 

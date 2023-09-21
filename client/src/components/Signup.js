@@ -76,10 +76,9 @@ const Signup = () => {
             </div>
 
             <div className="signup-form-div">
+                <h1 className="signup-heading">Welcome to Nextask</h1>
+                <p>Create your account</p>
                 <form className="signup-form" action="" onSubmit={handleSubmit}>
-                    <h1 className="signup-heading">Sign Up</h1>
-                    <br />
-
                     <input id="name" 
                         className="name" 
                         type="text" 
@@ -96,7 +95,7 @@ const Signup = () => {
                         type="text" 
                         placeholder="Username" 
                         disabled={click}
-                        onChange={(e) => {setUsername(e.target.value.toLowerCase())}}
+                        onChange={(e) => {setUsername(e.target.value.toLowerCase().replace(/\s/g, ""))}}
                         value={username}
                         required
                     />

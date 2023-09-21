@@ -1,19 +1,24 @@
 .signup-form-div{
-    padding-top: 60px;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 40%;
+    padding-top: 3%;
+    background: #FFFFFF;
+    flex-direction: column;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.signup-form-div p {
+    font-size: 14px;
+    color: #3f3f41;
 }
 
 .signup-form {
-    border: 1px solid #F5F5F5;
-    padding: 20px;
+    margin-top: 35px;
     border-radius:5%;
     text-align: center;
-    width:80%;
-    height: auto;
+    width: 90%;
     background: transparent;
     display: flex;
     justify-content: center;
@@ -23,30 +28,31 @@
 
 .signup-form input {
     width: 80%;
-    height: 10%;
     background: transparent;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    font-size: 18px;
-    padding: 10px;
-    color: #FFFFFF;
-    border-color: #CCCCCC;
+    font-size: 15px;
+    padding: 12px;
+    color: #000000;
+    border-color: #000000;
 }
 
 .signup-form input::placeholder {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 .signup-form input[type=submit] {
+    margin-top: 10px;
     color: #FEFEFA;
-    background: #2E2D88;
+    background: #333333;
+    border-radius: 20px;
     border: 0;
     cursor: pointer;
 }
 
 .signup-form input[type=submit]:active {
-    background: #3c3a9e;
+    background: #3f3f41;
 }
 
 .signup-form input[type=submit]:disabled {
@@ -55,11 +61,13 @@
 
 @media screen and (max-width: 992px) {
     .signup-form-div{
+        padding-top: 0;
+        justify-content: center;
         width: 100%;
     }
 
     .signup-form {
-        width: 60%;
+        width: 100%;
     }
 }
 
@@ -70,6 +78,6 @@
     }
 
     .signup-form {
-        width: 80%;
+        width: 100%;
     }
 }

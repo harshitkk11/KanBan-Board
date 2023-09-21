@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@font-face {
+  font-family: nextask-regular;
+  src: url(./assets/nextask-hind-regular.ttf);
+}
 
 html {
   overflow: scroll;
@@ -8,7 +11,7 @@ html {
 }
 ::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
-  background: transparent;  /* Optional: just make scrollbar invisible */
+  background: transparent;  /* Make scrollbar invisible */
 }
 
 *{
@@ -18,11 +21,11 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #0074E4, #34A853);
-  background-color: #0074E4;
+  /* background: linear-gradient(135deg, #0074E4, #34A853); */
+  background-color: #333333;
   min-height: 100vh;
   min-width: fit-content;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'nextask-regular', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* overflow-y: hidden; */

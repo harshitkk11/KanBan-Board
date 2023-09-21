@@ -1,22 +1,26 @@
-.forgot {
-    height: 100vh;
-    max-height: 100vh;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #F5F5F5;
+.forgot-form-div {
+    height: 100%;
+    width: 40%;
+    padding-top: 3%;
+    background: #FFFFFF;
+    flex-direction: column;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.forgot-form-div p {
+    font-size: 14px;
+    color: #3f3f41;
+    padding: 20px 40px;
+}
+
 .forgotpass-form {
-    border: 1px solid #F5F5F5;
-    width: 40%;
-    padding: 40px;
+    margin-top: 35px;
     border-radius:5%;
     text-align: center;
-    height: auto;
+    width: 90%;
     background: transparent;
     display: flex;
     justify-content: center;
@@ -25,58 +29,57 @@
 }
 
 .forgotpass-form input {
-    width: auto;
-    height: 10%;
+    width: 80%;
     background: transparent;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    font-size: 18px;
-    padding: 10px;
-    color: #FFFFFF;
-    border-color: #CCCCCC;
+    font-size: 15px;
+    padding: 12px;
+    color: #000000;
+    border-color: #000000;
 }
 
 .forgotpass-form input::placeholder {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 .forgotpass-form input[type=submit] {
+    margin-top: 10px;
     color: #FEFEFA;
-    background: #2E2D88;
+    background: #333333;
+    border-radius: 20px;
     border: 0;
-    padding: 10px 40px;
     cursor: pointer;
 }
 
 .forgotpass-form input[type=submit]:active {
-    background: #3c3a9e;
+    background: #3f3f41;
+}
+
+.forgotpass-form input[type=submit]:disabled {
+    background: #3f3f41;
 }
 
 @media screen and (max-width: 992px) {
 
-    /* .forgot-heading {
-        font-size: 25px;
-    } */
+    .forgot-form-div{
+        padding-top: 0;
+        justify-content: center;
+        width: 100%;
+    }
 
     .forgotpass-form {
-        width: 70%;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .forgot {
-        padding: 0;
-    }
-
-    .forgot-heading {
-        font-size: 20px;
+    .forgot-form-div{
+        width: 100%;
     }
 
     .forgotpass-form {
-        width: 80%;
-    }
-    .forgotpass-form input {
-        font-size: 15px;
+        width: 100%;
     }
 }

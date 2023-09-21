@@ -1,17 +1,18 @@
 .form {
-    height: 100vh;
+    height: 92vh;
+    padding: 10px;
+    padding-top: 0;
     max-height: 100vh;
     display: flex;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    color: #F5F5F5;
-    padding-bottom: 100px
+    color: #000000;
 }
 
 .form-img-div, .login-form-div{
     height: 100%;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 
@@ -21,19 +22,29 @@
 
 .form-img-div img {
     width: 90%;
+    filter: drop-shadow(10px 1px 20px black);
 }
 
 .login-form-div{
     width: 40%;
-    height: 100%;
+    padding-top: 8%;
+    background: #FFFFFF;
+    flex-direction: column;
+    /* gap: 5px; */
+    border-radius: 10px;
+}
+
+.login-form-div p {
+    font-size: 14px;
+    color: #3f3f41;
 }
 
 .login-form {
-    border: 1px solid #F5F5F5;
-    padding: 20px;
+    /* border: 1px solid #F5F5F5; */
+    margin-top: 35px;
     border-radius:5%;
     text-align: center;
-    width:80%;
+    width:90%;
     height: auto;
     background: transparent;
     display: flex;
@@ -44,30 +55,38 @@
 
 .login-form input {
     width: 80%;
-    height: 10%;
     background: transparent;
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    font-size: 18px;
-    padding: 10px;
-    color: #FFFFFF;
-    border-color: #CCCCCC;
+    font-size: 15px;
+    padding: 12px;
+    color: #000000;
+    border-color: #000000;
+}
+
+.forgotpass {
+    color: #3f3f41;
+    text-align: right;
+    width: 80%;
+    text-decoration: none;
 }
 
 .login-form input::placeholder {
-    color: #FFFFFF;
+    color: #000000;
 }
 
 .login-form input[type=submit] {
+    margin-top: 20px;
     color: #FEFEFA;
-    background: #2E2D88;
+    background: #333333;
+    border-radius: 20px;
     border: 0;
     cursor: pointer;
 }
 
 .login-form input[type=submit]:active {
-    background: #3c3a9e;
+    background: #3f3f41;
 }
 
 .login-form input[type=submit]:disabled {
@@ -75,48 +94,44 @@
 }
 
 .signup-link {
-    margin: 20px;
+    margin: 10%;
+    display: flex;
+    gap: 5px;
 }
 
 .signup-link a {
+    color: #000000;
     cursor: pointer;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 992px) {
-    .form {
-        flex-direction: column;
-        padding-bottom: 250px;   
-        overflow-y: auto;
-    }
-
     .form-img-div {
         display: none;
     }
 
     .login-form-div{
+        padding-top: 0;
+        justify-content: center;
         width: 100%;
     }
 
     .login-form {
-        width: 60%;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .form {
-    padding-top: 60px;
-    }
-    
     .form-img-div {
         display: none;
     }
 
-    .login-form-div{
+    /* .login-form-div{
         width: 100%;
         margin-top: 10%
-    }
+    } */
 
     .login-form {
-        width: 80%;
+        width: 100%;
     }
 }

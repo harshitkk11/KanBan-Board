@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import axios from "axios"
 import NavBar from "./components/NavBar.js";
-import Login from "./components/Login"
-import Signup from "./pages/Signup.js";
-import Forgot from "./pages/Forgot.js";
+import Login from "./components/Login.js"
+import Signup from "./components/Signup.js";
+import Forgot from "./components/Forgot.js";
 import Dashboard from "./pages/DashBoard.js"
 import Board from "./pages/Board.js";
 import { UserContext } from "./contexts/UserContext.js";
