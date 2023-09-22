@@ -89,6 +89,10 @@
     background: #3f3f41;
 }
 
+.login-form input[type=submit]:hover {
+    filter: brightness(1.3);
+}
+
 .login-form input[type=submit]:disabled {
     background: #3f3f41;
 }
@@ -125,11 +129,6 @@
     .form-img-div {
         display: none;
     }
-
-    /* .login-form-div{
-        width: 100%;
-        margin-top: 10%
-    } */
 
     .login-form {
         width: 100%;

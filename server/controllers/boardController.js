@@ -13,8 +13,8 @@ const getBoards = async (req, res) => {
 }
 
 const createBoard = async (req, res) => {
-    const {username, boardname} = req.body
-    const newdata = {boardname: boardname}
+    const {username, boardname, color} = req.body
+    const newdata = {boardname: boardname, color: color}
 
 
     try {

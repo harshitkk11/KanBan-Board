@@ -9,9 +9,10 @@ import Forgot from "./components/Forgot.js";
 import Dashboard from "./pages/DashBoard.js"
 import Board from "./pages/Board.js";
 import { UserContext } from "./contexts/UserContext.js";
+import { ColorContextProvider } from "./contexts/ColorContext.js";
 
 
-axios.defaults.baseURL = 'https://kanbanzen.vercel.app/';
+axios.defaults.baseURL = 'http://192.168.50.184:3001/';
 // axios.defaults.withCredentials = true;
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <UserContext.Provider value={{user, setUser}}>
+      <ColorContextProvider>
       <div className="App">
         <BrowserRouter>
           <NavBar />
@@ -90,6 +92,7 @@ function App() {
           </div>
         </BrowserRouter>
       </div>
+      </ColorContextProvider>
     </UserContext.Provider>
   );
 }

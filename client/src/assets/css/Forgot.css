@@ -53,6 +53,10 @@
     cursor: pointer;
 }
 
+.forgotpass-form input[type=submit]:hover {
+    filter: brightness(1.2);
+}
+
 .forgotpass-form input[type=submit]:active {
     background: #3f3f41;
 }
@@ -77,6 +81,10 @@
 @media screen and (max-width: 600px) {
     .forgot-form-div{
         width: 100%;
+    }
+
+    .forgot-form-div h1 {
+        font-size: 30px;
     }
 
     .forgotpass-form {

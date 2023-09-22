@@ -12,6 +12,9 @@ const Boards = new Schema({
             type: String,
             required: true
         },
+        color: {
+            type: String
+        },
         todo: [{
             title: {
                 type: String
