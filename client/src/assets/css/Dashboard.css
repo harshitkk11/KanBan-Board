@@ -89,7 +89,9 @@
 }
 
 .board:hover {
-    filter: brightness(1.2);
+    box-shadow: 2px 2px 10px;
+    transition: all ease 0.2s;
+
 }
 
 .popup-div {
@@ -104,6 +106,7 @@
     padding: 20px;
     text-align: center;
     color: #FFFFFF;
+    transition: all 0.3s ease 0s;
 }
 
 .popup-top {

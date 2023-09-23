@@ -112,6 +112,7 @@ hr {
     cursor: pointer;
     word-wrap: break-word;
     color: #333333;
+    transition: all 0.3s ease 0s;
 }
 
 .description-div {
@@ -139,6 +140,7 @@ hr {
 
 .add-btn:hover , .task-item:hover{
     background: #FFFFFF;
+    box-shadow: 2px 2px 15px;
 }
 
 .task-popup-div {
