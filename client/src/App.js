@@ -12,7 +12,7 @@ import { UserContext } from "./contexts/UserContext.js";
 import { ColorContextProvider } from "./contexts/ColorContext.js";
 
 
-axios.defaults.baseURL = 'http://192.168.43.184:3001/';
+axios.defaults.baseURL = 'https://kanbanzen.vercel.app/';
 // axios.defaults.withCredentials = true;
 
 function App() {
