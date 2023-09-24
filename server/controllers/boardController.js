@@ -64,7 +64,7 @@ const deleteBoard = async (req, res) => {
 }
 
 const createTodo = async (req, res) => {
-    const {username, boardid, title, description} = req.body
+    const {username, boardid, title, description, index} = req.body
     const todocard = {title: title, description: description}
 
     try {
@@ -77,7 +77,30 @@ const createTodo = async (req, res) => {
             }}, {$push: {
                 "boarddata.$.todo": todocard
             }})
+        
         return res.status(200).json(addTodo)
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
+const dragTodo = async (req, res) => {
+    const {username, boardid, title, description, index} = req.body
+    const todocard = {title: title, description: description}
+
+    try {
+        const addTodo = await Boards.findOneAndUpdate({
+            username, 
+            boarddata: {
+                $elemMatch: {
+                    _id: boardid
+                }
+            }}, {$push: {
+                // "boarddata.$.todo": todocard
+                "boarddata.$.todo": {$each: [todocard], $position: index}
+            }})
+            return res.status(200).json(addTodo)
+        
     } catch(error) {
         res.status(400).json({error: error.message})
     }
@@ -135,6 +158,27 @@ const createInprogress = async (req, res) => {
     }
 }
 
+const dragInprogress = async (req, res) => {
+    const {username, boardid, title, description, index} = req.body
+    const inprogresscard = {title: title, description: description}
+
+    try {
+        const addinprogress = await Boards.findOneAndUpdate({
+            username, 
+            boarddata: {
+                $elemMatch: {
+                    _id: boardid
+                }
+            }}, {$push: {
+                "boarddata.$.inprogress": {$each: [inprogresscard], $position: index}
+            }})
+            return res.status(200).json(addinprogress)
+        
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
 const updateInprogress = async (req, res) => {
     const {username, boardid, title, description, id} = req.body
 
@@ -187,6 +231,28 @@ const createDone = async (req, res) => {
     }
 }
 
+const dragDone = async (req, res) => {
+    const {username, boardid, title, description, index} = req.body
+    const donecard = {title: title, description: description}
+
+    try {
+        const adddone = await Boards.findOneAndUpdate({
+            username, 
+            boarddata: {
+                $elemMatch: {
+                    _id: boardid
+                }
+            }}, {$push: {
+                // "boarddata.$.todo": todocard
+                "boarddata.$.done": {$each: [donecard], $position: index}
+            }})
+            return res.status(200).json(adddone)
+        
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
 const updateDone = async (req, res) => {
     const {username, boardid, title, description, id} = req.body
 
@@ -225,12 +291,15 @@ module.exports = {
     deleteBoard,
     getBoards, 
     createTodo,
+    dragTodo,
     updateTodo,
     deleteTodo,
     createInprogress,
+    dragInprogress,
     updateInprogress,
     deleteInprogress,
     createDone,
+    dragDone,
     updateDone,
     deleteDone
 }

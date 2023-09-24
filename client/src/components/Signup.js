@@ -11,6 +11,8 @@ const Signup = () => {
     const [password, setPassword] = useState("")
     const [click, setClick] = useState(false)
     const [send, setSend] = useState("Sign Up")
+    const [loader, setLoader] = useState("none");
+
 
     const specialChars = /[@!#$%^&*()+=_,.`~-\d]/;
 
@@ -34,43 +36,56 @@ const Signup = () => {
         else {
             setClick(true)
             setSend("Please Wait..")
+            setLoader("flex")
 
-            const response = await axios.post('/signup', {
-                name,
-                username,
-                email, 
-                password
-            })
+            try {
+                const response = await axios.post('/signup', {
+                    name,
+                    username,
+                    email, 
+                    password
+                })
 
-            if (response){
-                
-                if (response.data === "username exist") {
-                    setClick(false)
-                    setSend("Sign Up")
-                    toast.error("Username already exist!!")
-                }
+                if (response){
+                    setLoader("none")
+                    
+                    if (response.data === "username exist") {
+                        setClick(false)
+                        setSend("Sign Up")
+                        toast.error("Username already exist!!")
+                    }
 
-                else if (response.data === "email exist") {
-                    setClick(false)
-                    setSend("Sign Up")
-                    toast.error("Email already exist!!")
+                    else if (response.data === "email exist") {
+                        setClick(false)
+                        setSend("Sign Up")
+                        toast.error("Email already exist!!")
+                    }
+                    else if (response.data === "notExist") {
+                        setName("")
+                        setUsername("")
+                        setEmail("")
+                        setPassword("")
+                        setClick(false)
+                        setSend("Sign Up")
+                        navigate("/")
+                        toast.success("Account Created Successfully!!")
+                    }
                 }
-                else if (response.data === "notExist") {
-                    setName("")
-                    setUsername("")
-                    setEmail("")
-                    setPassword("")
-                    setClick(false)
-                    setSend("Sign Up")
-                    navigate("/")
-                    toast.success("Account Created Successfully!!")
-                }
+            } catch (error) {
+                setClick(false)
+                setSend("Sign Up")
+                setLoader("none")
+                toast.error("Something went wrong!!")
+                console.log(error)
             }
         }
     }
     
     return (
         <div className="form">
+            <div className="loader-div" style={{display: loader}}>
+                    <div className="loader"></div>
+            </div>
             <div className="form-img-div">
                 <img src={kanban} alt="KanBan Board"/>
             </div>

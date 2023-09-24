@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
     const { setUser } = useContext(UserContext);
     const navigate = useNavigate()
+    const [loader, setLoader] = useState("none");
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -20,6 +21,7 @@ const Login = () => {
         try {
             setClick(true)
             setSend("Please Wait..")
+            setLoader("flex")
             const response = await axios.post('/login', {
                 username, password
             })
@@ -31,16 +33,19 @@ const Login = () => {
                 setPassword("")
                 setClick(false)
                 setSend("Log In")
+                setLoader("none")
                 navigate("/")
             } 
             if (!response.data) {
                 setClick(false)
                 setSend("Log In")
+                setLoader("none")
                 toast.error("Incorrect Username or Password")
             }
         } catch (error) {
             setClick(false)
             setSend("Log In")
+            setLoader("none")
             toast.error("Something went wrong!!")
             console.log(error)
         }
@@ -48,6 +53,9 @@ const Login = () => {
     
     return (
         <div className="form">
+            <div className="loader-div" style={{display: loader}}>
+                    <div className="loader"></div>
+            </div>
             <div className="form-img-div">
                 <img src={kanban} alt="KanBan Board"/>
             </div>

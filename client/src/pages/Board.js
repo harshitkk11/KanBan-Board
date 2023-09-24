@@ -9,6 +9,7 @@ import toast from 'react-hot-toast'
 
 const Board = () => {
     const navigate = useNavigate()
+    const [loader, setLoader] = useState("flex");
 
     // get the username from the user state set on login page
     const { user } = useContext(UserContext);
@@ -23,9 +24,9 @@ const Board = () => {
 
     // board stores all the data of the board found with the help of boardid (line: 89)
     const [board, setBoard] = useState(null)
-    const [newname, setNewname] = useState("")
     const currentname = board?.boardname
-
+    const [newname, setNewname] = useState(currentname)
+    
     // titledata is used to send the data of a task from the inputs to database
     // in handleSubmit function (line: 48)
 
@@ -118,6 +119,55 @@ const Board = () => {
         }
     }
 
+    const onDragOver = (ev) => {
+        ev.preventDefault();
+    }
+
+    const onDragStart = (ev, dragid, title, description, path) => {
+        ev.dataTransfer.setData("id",dragid)
+        ev.dataTransfer.setData("title", title)
+        ev.dataTransfer.setData("description", description)
+        ev.dataTransfer.setData("path", path)
+    }
+
+    const onDrop = async (ev, path, index) => {
+        const id = ev.dataTransfer.getData("id")
+        const deletepath = ev.dataTransfer.getData("path")
+        const title = ev.dataTransfer.getData("title")
+        const description = ev.dataTransfer.getData("description")
+        
+        try {
+            const response = await axios.post(path, {
+                username,
+                boardid,
+                title,
+                description,
+                index
+            })
+
+            if (response.data) {
+                try {
+                    const response = await axios.post(deletepath, {
+                        username,
+                        boardid,
+                        id
+                    })
+                    if (response) {
+                        // console.log({id, deletepath, title, description, index, path});
+                        window.location.reload()
+                    }
+                } catch (error) {
+                    toast.error("Something went wrong!!")
+                    console.log(error)
+                }
+            }
+        } catch (error) {
+            toast.error("Something went wrong!!")
+            console.log(error)
+        }
+        
+    }
+
     useEffect(() => {
         async function fetchData() {
             try {
@@ -127,8 +177,10 @@ const Board = () => {
 
                 if (response.data) {
                     setBoards(Object.values(response.data.boarddata))
+                    setLoader("none")
                 }
             } catch (error) {
+                setLoader("none")
                 toast.error("Something went wrong!!")
                 console.log(error)
             }
@@ -189,6 +241,7 @@ const Board = () => {
                             name="board-name"
                             type="text"
                             autoComplete="off"
+                            value={newname}
                             onChange={(e) => setNewname(e.target.value)}
                             required
                         />
@@ -201,14 +254,27 @@ const Board = () => {
 
             {/* division in which the lists will be shown */}
             <div className="cards-div">
-
+                <div className="loader-div" style={{display: loader}}>
+                    <div className="loader"></div>
+                </div>
                 {/* TODO list */}
                 <div className="todo-list">
                     <p>TO DO</p>
                     <hr />
-                    <ul className="todo-card">
-                        {board && board.todo.map((item, _id) => (
-                            <li key={_id}>
+                    <ul className="todo-card" >
+                        {board && board.todo.map((item, index) => (
+                            <li key={index} 
+                                draggable 
+                                onDragOver={(e) => onDragOver(e)}
+                                onDragStart={(e) => onDragStart(e, 
+                                    item._id, 
+                                    item.title, 
+                                    item.description,
+                                    "/deletetodo")}
+                                onDrop={(e) => onDrop(e, 
+                                    "/dragtodo",
+                                    index)}
+                            >
                                 <button className="task-item" onClick={() => {
                                     setTaskisOpen({
                                         ...taskisOpen,
@@ -245,8 +311,21 @@ const Board = () => {
                     <p>IN PROGRESS</p>
                     <hr />
                     <ul className="inprogress-card">
-                        {board && board.inprogress.map((item, _id) => (
-                            <li key={_id}>
+                        {board && board.inprogress.map((item, index) => (
+                            <li key={index}
+                                draggable
+                                onDragOver={(e) => onDragOver(e)}
+                                onDragStart={(e) => onDragStart(e, 
+                                    item._id, 
+                                    item.title, 
+                                    item.description,
+                                    "/deleteinprogress")
+                                }
+                                onDrop={(e) => onDrop(e, 
+                                    "/draginprogress",
+                                    index)
+                                }
+                            >
                                 <button className="task-item" onClick={() => {
                                     setTaskisOpen({
                                         ...taskisOpen,
@@ -283,8 +362,19 @@ const Board = () => {
                     <p>DONE</p>
                     <hr />
                     <ul className="done-card">
-                        {board && board.done.map((item, _id) => (
-                            <li key={_id}>
+                        {board && board.done.map((item, index) => (
+                            <li key={index}
+                                draggable
+                                onDragOver={(e) => onDragOver(e)}
+                                onDragStart={(e) => onDragStart(e, 
+                                    item._id, 
+                                    item.title, 
+                                    item.description,
+                                    "/deletedone")}
+                                onDrop={(e) => onDrop(e, 
+                                    "/dragdone",
+                                    index)}
+                            >
                                 <button className="task-item" onClick={() => {
                                     setTaskisOpen({
                                         ...taskisOpen,
@@ -316,7 +406,7 @@ const Board = () => {
                     )}><FaPlus /> Add Task</button>
                 </div>
 
-                {/* script for ADD BUTTON to add th task in the list */}
+                {/* script for ADD BUTTON to add the task in the list */}
                 {taskisOpen.path && (
                     <div className="task-popup-div">
 
