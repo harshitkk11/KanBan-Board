@@ -202,6 +202,10 @@ const Board = () => {
 
     return (
         <div className="board-page">
+            <div className="loader-div" style={{display: loader}}>
+                    <div className="loader"></div>
+            </div>
+            
             {/* Board NAV on the bottom of the navbar containing back button, boardname, edit button and delete button*/}
             <div className="board-nav">
 
@@ -254,9 +258,6 @@ const Board = () => {
 
             {/* division in which the lists will be shown */}
             <div className="cards-div">
-                <div className="loader-div" style={{display: loader}}>
-                    <div className="loader"></div>
-                </div>
                 {/* TODO list */}
                 <div className="todo-list">
                     <p>TO DO</p>
