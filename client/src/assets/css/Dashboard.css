@@ -21,18 +21,18 @@
     /* border-bottom: 2px solid #333333; */
 }
 
-.user-div span {
-    font-size: 40px;
-}
-
 .user-name {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    /* border: 1px solid black; */
     width: 50%;
     text-align: center;
+}
+
+.user-name span {
+    font-size: 40px;
+    display: flex;
 }
 
 .logout-btn {
@@ -61,6 +61,40 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.create-board-div {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.create-board-div img {
+    width: 40%;
+}
+
+.create-board-div p {
+    width: 100%;
+    color: #333333;
+    text-align: center;
+}
+
+.create-board {
+    width: 100%;
+    max-width: 250px;
+    background: rgb(63,94,251);
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #FFFFFF;
 }
 
 .boards {
@@ -276,6 +310,18 @@
   }
 
 @media screen and (max-width: 992px) {
+    .create-board-div img {
+        width: 100%;
+    }
+    
+    .create-board-div p {
+        width: 100%;
+    }
+    
+    .create-board {
+        width: 100%;
+    }
+
     .board {
         width: 48%;
     }

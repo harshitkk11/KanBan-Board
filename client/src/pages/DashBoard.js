@@ -5,6 +5,7 @@ import { ColorContext } from "../contexts/ColorContext"
 import { useNavigate } from "react-router-dom"
 import { MdPersonOutline, MdClose } from "react-icons/md";
 import toast from "react-hot-toast";
+import kanbanimg from "../assets/images/kanban-method.png"
 
 
 const Dashboard = () => {
@@ -99,12 +100,29 @@ const Dashboard = () => {
 
             <div className="board-div">
                 <h3>Boards</h3>
-                <div className="boards">
+
+                {(!boardlist || boardlist.length === 0) ? <div className="create-board-div">
+                    <img src={kanbanimg} alt="kanban-method"/>
+                    <p>Boards in NexTask are where tasks move between lists,
+                         helping you manage projects efficiently.
+                    </p>
+                    <button className="create-board" 
+                        // style={{ background: "#484848" }} 
+                        onClick={() => setIsOpen(true)}
+                    >
+                        Create new board
+                    </button>
+                </div>
+                
+                : <div className="boards" >
                     <button className="board" style={{ background: "#484848" }} onClick={() => setIsOpen(true)}>
                         <p>Create new board</p>
                     </button>
+                    {list}
+                </div>
+                }
 
-                    {isOpen && (
+                {isOpen && (
                         <div className="popup-div">
                             <div className="popup-top">
                                 <p>Create Board</p>
@@ -187,8 +205,6 @@ const Dashboard = () => {
                             </form>
                         </div>
                     )}
-                    {list}
-                </div>
             </div>
         </div>
     )
