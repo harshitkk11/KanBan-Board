@@ -57,6 +57,7 @@ const Dashboard = () => {
                     setBoards(JSON.parse(JSON.stringify(response.data)))
                     setLoader("none")
                 }
+                setLoader("none")
             } catch (error) {
                 setLoader("none")
                 toast.error("Something went wrong!!")
