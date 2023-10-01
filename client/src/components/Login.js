@@ -35,6 +35,7 @@ const Login = () => {
                 setSend("Log In")
                 setLoader("none")
                 navigate("/")
+                window.location.reload()
             } 
             if (!response.data) {
                 setClick(false)

@@ -72,6 +72,10 @@
     text-decoration: none;
 }
 
+.forgotpass:hover {
+    text-decoration: underline;
+}
+
 .login-form input::placeholder {
     color: #000000;
 }
@@ -107,6 +111,10 @@
     color: #000000;
     cursor: pointer;
     text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 992px) {

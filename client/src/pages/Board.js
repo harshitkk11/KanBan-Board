@@ -6,6 +6,10 @@ import { MdArrowBack, MdClose, MdDeleteOutline } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { FiEdit2 } from "react-icons/fi";
 import toast from 'react-hot-toast'
+import { Dialog } from 'primereact/dialog';
+import { Button } from "primereact/button";
+import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
+
 
 const Board = () => {
     const navigate = useNavigate()
@@ -68,9 +72,9 @@ const Board = () => {
     }
 
     // handle's DELETE button in the board-nav div (line: 152)
-    const handleDelete = async (e) => {
+    const handleDelete = async () => {
         const id = taskisOpen.id
-        e.preventDefault()
+        // e.preventDefault()
         try {
             const response = await axios.post(deletepath, {
                 username,
@@ -90,6 +94,16 @@ const Board = () => {
             console.log(error)
         }
     }
+
+    const confirm = () => {
+        confirmDialog({
+            message: 'Do you want to delete this Board?',
+            header: 'Delete Confirmation',
+            icon: 'pi pi-info-circle',
+            acceptClassName: 'p-button-danger',
+            accept: handleDelete
+        });
+    };
 
     // handle's CREATE button in the lists (line: 241)
     const handleSubmit = async (e) => {
@@ -205,7 +219,7 @@ const Board = () => {
             <div className="loader-div" style={{display: loader}}>
                     <div className="loader"></div>
             </div>
-            
+            <ConfirmDialog className="p-confirm-dialog"/>
             {/* Board NAV on the bottom of the navbar containing back button, boardname, edit button and delete button*/}
             <div className="board-nav">
 
@@ -219,42 +233,41 @@ const Board = () => {
                 <button className="edit-board" onClick={() => setBoardisopen(true)}><FiEdit2 /></button>
 
                 {/* delete button */}
-                <button className="delete-board" onClick={(e) => handleDelete(e)}><MdDeleteOutline /></button>
+                <button className="delete-board" onClick={() => confirm()}><MdDeleteOutline /></button>
 
             </div>
 
             {/* script for EDIT button, when clicked popup window will open to edit the board name*/}
-            {boardisopen && (
-                <div className="popup-div">
+            <Dialog 
+                className="popup-div"
+                header="Edit Name" 
+                visible={boardisopen} 
+                modal={false}
+                key="enter" 
+                onHide={() => setBoardisopen(false)}
+                >
 
-                    <div className="popup-top">
-                        <p>Edit Board Title</p>
-                        <button className="popup-close" onClick={() => setBoardisopen(false)}>
-                            <MdClose />
-                        </button>
-                    </div>
-                    <br />
+                {/* popup window edit form */}
+                <form className="board-name-form" onSubmit={(e) => handleEdit(e)}>
 
-                    {/* popup window edit form */}
-                    <form className="board-name-form" onSubmit={(e) => handleEdit(e)}>
+                    <label htmlFor="board-name">Board title</label>
+                    <input
+                        id="board-name"
+                        className="board-name"
+                        name="board-name"
+                        type="text"
+                        autoComplete="off"
+                        value={newname}
+                        onChange={(e) => setNewname(e.target.value)}
+                        required
+                    />
 
-                        <label htmlFor="board-name">Board title</label>
-                        <input
-                            id="board-name"
-                            className="board-name"
-                            name="board-name"
-                            type="text"
-                            autoComplete="off"
-                            value={newname}
-                            onChange={(e) => setNewname(e.target.value)}
-                            required
-                        />
-
-                        <input id="board-submit" className="board-submit"
-                            name="board-submit" type="submit" value="Save" />
-                    </form>
-                </div>
-            )}
+                    <Button className="board-submit"
+                        label="Save"
+                        style={{width: "100%", marginTop: "20px"}}
+                        autoFocus/>
+                </form>
+            </Dialog>
 
             {/* division in which the lists will be shown */}
             <div className="cards-div">
