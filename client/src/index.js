@@ -9,7 +9,7 @@ import './assets/css/Signup.css';
 import './assets/css/Dashboard.css';
 import './assets/css/Forgot.css';
 import './assets/css/Board.css';
-import "primereact/resources/themes/bootstrap4-light-blue/theme.css"; 
+import "primereact/resources/themes/soho-light/theme.css"; 
 import "primereact/resources/primereact.min.css";
 
 
