@@ -30,3 +30,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* overflow-y: hidden; */
 }
+
+input {
+  letter-spacing: 2px;
+}

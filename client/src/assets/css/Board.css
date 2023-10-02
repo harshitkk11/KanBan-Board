@@ -148,13 +148,17 @@ hr {
     width: 300px;
     height: auto;
     /* max-height: 350px; */
-    background: #484848;
+    background: #FFFFFF;
     top: 190px;
     left: 375px;
-    border-radius: 10px;
+    border-radius: 6px;
     padding: 20px;
     text-align: center;
-    color: #FFFFFF;
+    color: #043D75;
+    border: 1px solid #F3F3F3;
+    /* box-shadow: 1px 1px 25px 1px #708DA9; */
+    transform: none;
+    transition: all 0s ease 0s;
 }
 
 .task-popup-top {
@@ -170,10 +174,16 @@ hr {
 
 .task-popup-close {
     background: transparent;
-    color: #FFFFFF;
+    color: #708DA9;
     font-size: 20px;
     border: 0;
     cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.task-popup-close:hover {
+    background: #F8F9FC;
 }
 
 .task-form {
@@ -185,21 +195,22 @@ hr {
 }
 
 .task-form label {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .task-title, .task-description {
     width: 100%;
-    height: 30px;
+    height: 40px;
     background: transparent;
-    border: 3px solid #FFFFFF;
+    border: 3px solid #708DA9;
     border-radius: 3px;
-    color: #FFFFFF;
+    color: #000000;
     padding: 10px;
+    font-size: 13.3333px;
 }
 
 .task-title:hover, .task-description:hover {
-    border-color: #01bbff;
+    border-color: #043D75;
 }
 
 .task-title:focus, .task-description:focus {
@@ -214,45 +225,46 @@ hr {
 
 .task-submit {
     width: 100%;
-    height: 30px;
-    background: #606060;
+    height: 45.1042px;
+    background: #7254F3;
     border: 0;
-    border-radius: 3px;
+    border-radius: 6px;
     margin-top: 20px;
     color: #FFFFFF;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
-    border: 1px solid #00CC66;
-    color: #FFFFFF;
+    border: 1px solid #7254F3;
 }
 
 .task-submit:hover {
-    color: #00CC66;
+    background: #6545F2;
+    color: #FFFFFF;
 }
 
 .task-submit:active {
-    background: #4dff4d;
+    background: #6545F2;
     color: #FFFFFF;
 }
 
 .task-delete-btn {
     margin-top: 10px;
     width: 100%;
-    height: 30px;
-    background: #606060;
-    border: 1px solid #e60000;
-    border-radius: 3px;
+    height: 45.1042px;
+    background: #EA5455;
+    border-radius: 6px;
     color: #FFFFFF;
     font-size: 15px;
     cursor: pointer;
+    border: 0;
 }
 
 .task-delete-btn:hover {
-    color: #e60000;
+    background: #e94949;
+    color: #FFFFFF;
 }
 
 .task-delete-btn:focus {
-    background: #FF6B6B;
+    background: #e94949;
     color: #FFFFFF;
 }
 

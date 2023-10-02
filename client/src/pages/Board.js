@@ -293,7 +293,7 @@ const Board = () => {
                                     setTaskisOpen({
                                         ...taskisOpen,
                                         path: "/updatetodo",
-                                        heading: "",
+                                        heading: "Edit Task",
                                         title: item.title,
                                         description: item.description,
                                         id: item._id,
@@ -317,7 +317,13 @@ const Board = () => {
                             path: "/createtodo",
                             btnvalue: "Add"
                         }
-                    )}><FaPlus /> Add Task</button>
+                    )
+                    }
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 
+                        "/dragtodo",
+                        -1)}
+                        ><FaPlus /> Add Task</button>
                 </div>
 
                 {/* INPROGRESS list */}
@@ -344,7 +350,7 @@ const Board = () => {
                                     setTaskisOpen({
                                         ...taskisOpen,
                                         path: "/updateinprogress",
-                                        heading: "",
+                                        heading: "Edit Task",
                                         title: item.title,
                                         description: item.description,
                                         id: item._id,
@@ -368,7 +374,11 @@ const Board = () => {
                             path: "/createinprogress",
                             btnvalue: "Add"
                         }
-                    )}><FaPlus /> Add Task</button>
+                    )}
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 
+                        "/draginprogress",
+                        -1)}><FaPlus /> Add Task</button>
                 </div>
 
                 {/* DONE list */}
@@ -393,7 +403,7 @@ const Board = () => {
                                     setTaskisOpen({
                                         ...taskisOpen,
                                         path: "/updatedone",
-                                        heading: "",
+                                        heading: "Edit Task",
                                         title: item.title,
                                         description: item.description,
                                         id: item._id,
@@ -417,7 +427,11 @@ const Board = () => {
                             path: "/createdone",
                             btnvalue: "Add"
                         }
-                    )}><FaPlus /> Add Task</button>
+                    )}
+                    onDragOver={(e) => onDragOver(e)}
+                    onDrop={(e) => onDrop(e, 
+                        "/dragdone",
+                        -1)}><FaPlus /> Add Task</button>
                 </div>
 
                 {/* script for ADD BUTTON to add the task in the list */}
@@ -461,7 +475,7 @@ const Board = () => {
                             <input id="task-submit" className="task-submit"
                                 name="task-submit" type="submit" value={taskisOpen.btnvalue} />
                         </form>
-                        {!taskisOpen.heading && <button className="task-delete-btn" onClick={(e) => {
+                        {taskisOpen.heading === "Edit Task" && <button className="task-delete-btn" onClick={(e) => {
                             handleDelete(e)
                         }}>
                             Delete
