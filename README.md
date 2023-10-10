@@ -1,7 +1,5 @@
 # NexTask - Task Management Tool (Kanban Board)
 
-![NexTask Logo]([https://yourwebsite.com/logo.png](https://mynextask.vercel.app/static/media/nextask-logo.e75c03c1ce0b86dbb08c.webp))
-
 NexTask is a powerful task management tool developed using the MERN stack (MongoDB, Express.js, React, Node.js). It offers an intuitive Kanban board interface for efficiently managing your tasks and projects. With a robust API supporting CRUD (Create, Read, Update, Delete) operations, NexTask makes task management a breeze.
 
 ## Features
